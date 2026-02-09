@@ -319,7 +319,7 @@
       color: transparent;
     }
 
-    /* Правая колонка с фото и карточкой */
+    /* Правая колонка с фото и инфо */
     .side-card {
       border-radius: 26px;
       padding: 18px;
@@ -445,6 +445,49 @@
       color: rgba(195,205,245,0.85);
       opacity: 0.9;
     }
+
+    /* Блок с данными с сайта школы */
+    .details-card {
+      margin-top: 20px;
+      border-radius: 22px;
+      padding: 18px 16px;
+      background: linear-gradient(135deg, rgba(3,10,40,0.96), rgba(10,26,70,0.96));
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .details-title {
+      font-size: 15px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .details-section {
+      margin-top: 10px;
+    }
+
+    .details-section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(170,190,255,0.9);
+      margin-bottom: 4px;
+    }
+
+    .details-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .details-list li {
+      margin-bottom: 3px;
+    }
+
+    .details-accent {
+      color: #ffd56a;
+    }
   </style>
 </head>
 <body>
@@ -511,6 +554,47 @@
           <div class="price-tag">
             Занятие от <strong>1&nbsp;600&nbsp;₽</strong> • можно договориться про абонемент на месяц.
           </div>
+
+          <!-- Карточка с данными с сайта школы -->
+          <div class="details-card">
+            <div class="details-title">О Вениамине Владимировиче</div>
+
+            <div class="details-section">
+              <div class="details-section-title">Общие сведения</div>
+              <ul class="details-list">
+                <li>Полное имя: <span class="details-accent">Захаров Вениамин Владимирович</span></li>
+                <li>Основная должность: заместитель директора</li>
+                <li>Педагогическая должность: учитель</li>
+                <li>Педагогический стаж: 43 года 5 месяцев 17 дней (на 01.02.2026)</li>
+              </ul>
+            </div>
+
+            <div class="details-section">
+              <div class="details-section-title">Образование</div>
+              <ul class="details-list">
+                <li>Высшее образование (специалист): Орехово‑Зуевский педагогический институт, специальность «учитель математики», квалификация «математика».</li>
+                <li>Высшее образование (бакалавриат): НОУ ВО «Институт мировой экономики и информатизации» г. Москва, направление «Государственное и муниципальное управление», квалификация «бакалавр».</li>
+              </ul>
+            </div>
+
+            <div class="details-section">
+              <div class="details-section-title">Повышение квалификации и курсы</div>
+              <ul class="details-list">
+                <li>Курс «Противодействие коррупции в образовательной организации» (АНО ДПО «Центр Профессионального Обучения», окончание 07.10.2025).</li>
+                <li>«Математика. Отдельные вопросы школьного курса. Углубленный уровень» (АО «Академия “Просвещение”», 36 часов, 11.08.2025–25.08.2025).</li>
+                <li>«Формирование практической математической грамотности школьников» (ГГТУ, 36 часов, 22.11.2021–13.12.2021).</li>
+                <li>«Противопожарная безопасность» и другие программы по управленческой и пожарной безопасности, в том числе курсы для руководителей образовательных организаций.</li>
+              </ul>
+            </div>
+
+            <div class="details-section">
+              <div class="details-section-title">Аттестация</div>
+              <ul class="details-list">
+                <li>Высшая квалификационная категория по должности учитель (образование), дата аттестации — 19.12.2023.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -524,7 +608,7 @@
         <div class="badge-strip">
           <div class="badge-pill">
             <span class="badge-label">Стаж</span>
-            <span class="badge-value">Много лет в школе</span>
+            <span class="badge-value">43+ года педагогической работы</span>
           </div>
           <div class="badge-pill">
             <span class="badge-label">Формат</span>
