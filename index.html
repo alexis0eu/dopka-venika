@@ -249,7 +249,7 @@
       text-transform: uppercase;
       color: #e5f0ff;
       margin-bottom: 18px;
-      animation: pillFade 0.7s ease-out 0.3s both;
+      animation: pillFade 0.7s.ease-out 0.3s both;
       transform-origin: left center;
     }
 
@@ -294,7 +294,7 @@
       max-width: 460px;
     }
 
-    /* ====== БЛОК УРГЕНТНОСТИ ВВЕРХУ ====== */
+    /* ====== УРГЕНТНОСТЬ ====== */
     .urgency-strip {
       display: flex;
       flex-wrap: wrap;
@@ -444,7 +444,7 @@
       align-items: center;
       gap: 6px;
       box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s.ease-out;
     }
 
     .btn-ghost:hover {
@@ -479,7 +479,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+      transition: transform 0.18s ease-out, box-shadow 0.18s.ease-out, border-color 0.18s ease-out;
     }
 
     .bullet-chip:hover {
@@ -510,7 +510,7 @@
       color: transparent;
     }
 
-    /* ====== ПРОГРЕСС-БАР ====== */
+    /* ПРОГРЕСС-БАР */
     .progress-card {
       margin-top: 16px;
       border-radius: 18px;
@@ -587,7 +587,7 @@
     .progress-marks span:nth-child(2) { color: #ffd56a; }
     .progress-marks span:nth-child(3) { color: #4ade80; }
 
-    /* ====== ДЕТАЛИ, ПРАВАЯ КОЛОНКА, ЧАТ — КАК РАНЬШЕ (сократил комментарии) ====== */
+    /* ДЕТАЛИ */
     .details-card {
       margin-top: 20px;
       border-radius: 22px;
@@ -650,6 +650,7 @@
       color: #ffd56a;
     }
 
+    /* ПРАВАЯ КОЛОНКА + ЧАТ */
     .side-card {
       border-radius: 26px;
       padding: 18px;
@@ -683,7 +684,7 @@
         0 18px 40px rgba(0,0,0,0.9),
         0 0 0 1px rgba(255,255,255,0.16);
       transform-origin: 50% 100%;
-      transition: transform 0.28s ease-out, box-shadow 0.28s.ease-out;
+      transition: transform 0.28s ease-out, box-shadow 0.28s ease-out;
     }
 
     .tutor-photo-wrap:hover {
@@ -735,7 +736,7 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+      transition: transform 0.18s ease-out, box-shadow 0.18s.ease-out, border-color 0.18s ease-out;
     }
 
     .badge-pill:hover {
@@ -826,12 +827,11 @@
       opacity: 0.9;
     }
 
-    /* Чат-виджет */
+    /* ЧАТ-ВИДЖЕТ — растянутый */
     .chat-widget {
-      position: absolute;
-      right: 16px;
-      bottom: 16px;
-      width: 260px;
+      margin-top: 10px;
+      width: 100%;
+      height: 260px;
       border-radius: 20px;
       background: rgba(5,12,48,0.92);
       border: 1px solid rgba(255,255,255,0.25);
@@ -840,9 +840,11 @@
       overflow: hidden;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      transform: translateY(24px);
+      transform: translateY(10px);
       opacity: 0;
-      animation: chatIn 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1) 1.2s forwards;
+      animation: chatIn 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1) 1.0s forwards;
+      display: flex;
+      flex-direction: column;
     }
 
     @keyframes chatIn {
@@ -865,8 +867,8 @@
     }
 
     .chat-avatar {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 20%, #fff, #ffd56a);
       box-shadow: 0 0 0 1px rgba(255,255,255,0.6);
@@ -896,7 +898,8 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      max-height: 190px;
+      flex: 1;
+      overflow-y: auto;
     }
 
     .bubble {
@@ -904,6 +907,7 @@
       padding: 6px 8px;
       border-radius: 12px;
       line-height: 1.4;
+      word-wrap: break-word;
     }
 
     .bubble-teacher {
@@ -996,6 +1000,7 @@
     </div>
 
     <div class="content">
+      <!-- Левая часть -->
       <div class="hero-card">
         <div class="hero-inner">
           <div class="tagline-pill">
@@ -1003,7 +1008,6 @@
             <span>Личный репетитор в школе</span>
           </div>
 
-          <!-- УРГЕНТНОСТЬ -->
           <div class="urgency-strip">
             <div class="seats-chip" id="seats-chip">
               <div class="seats-dot"></div>
@@ -1060,7 +1064,6 @@
             Занятие от <strong>1&nbsp;600&nbsp;₽</strong> • можно договориться про абонемент на месяц.
           </div>
 
-          <!-- ПРОГРЕСС-БАР -->
           <div class="progress-card">
             <div class="progress-label">
               <span>Путь от оценки</span>
@@ -1076,7 +1079,6 @@
             </div>
           </div>
 
-          <!-- ДАННЫЕ С САЙТА ШКОЛЫ -->
           <div class="details-card reveal">
             <div class="details-inner">
               <div class="details-title">О Вениамине Владимировиче</div>
@@ -1121,7 +1123,7 @@
         </div>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА С ФОТО И ЧАТОМ -->
+      <!-- Правая колонка -->
       <div class="side-card">
         <div class="tutor-photo-wrap">
           <img src="image.jpg" alt="Вениамин Владимирович — преподаватель дополнительных занятий" />
@@ -1153,6 +1155,7 @@
           Не ботает только тот, кто не приходит. Успеваем поднять оценки до конца четверти.
         </div>
 
+        <!-- Чат -->
         <div class="chat-widget">
           <div class="chat-header">
             <div class="chat-header-left">
@@ -1160,23 +1163,19 @@
               <div>
                 <div class="chat-name">Вениамин Владимирович</div>
                 <div class="chat-status">
-                  <span class="chat-status-dot"></span>Отвечаю после уроков
+                  <span class="chat-status-dot"></span>Отвечаю как только освобожусь
                 </div>
               </div>
             </div>
           </div>
           <div class="chat-body" id="chat-body">
-            <div class="bubble bubble-student">
-              Можно ли подтянуть тему «квадратные уравнения»?
-              <div class="bubble-time">сегодня • 15:42</div>
-            </div>
             <div class="bubble bubble-teacher">
-              Можно. Приходи на допку в четверг после 6 урока, разберём всё по шагам.
-              <div class="bubble-time">ответ • 15:45</div>
+              Здравствуй. Пиши, какую тему нужно разобрать — подумаем, на какую допку лучше прийти.
+              <div class="bubble-time">ответ • сейчас</div>
             </div>
           </div>
           <div class="chat-input-row">
-            <input id="chat-input" class="chat-input" type="text" placeholder="Напиши, какую тему нужно разобрать…" />
+            <input id="chat-input" class="chat-input" type="text" placeholder="Напиши свой вопрос по предмету…" />
             <button class="chat-send" id="chat-send">➤</button>
           </div>
         </div>
@@ -1198,28 +1197,58 @@
     window.addEventListener("scroll", handleReveal);
     window.addEventListener("load", handleReveal);
 
-    // Фейковый чат
+    // Чат с фейк‑«ИИ»-ответом
     const input = document.getElementById("chat-input");
     const sendBtn = document.getElementById("chat-send");
     const chatBody = document.getElementById("chat-body");
-    function addStudentMessage(text) {
-      if (!text.trim()) return;
-      const msg = document.createElement("div");
-      msg.className = "bubble bubble-student";
-      msg.innerHTML = `${text}<div class="bubble-time">сейчас</div>`;
-      chatBody.appendChild(msg);
+
+    const teacherReplies = [
+      "Хороший вопрос. На допке разберём это на примерах, а пока попробуй выписать формулы и принести их с собой.",
+      "Эта тема не страшная, если делать по шагам. Начнём с базовых задач и постепенно усложним.",
+      "Запиши несколько примеров из МЭШ, которые вызывают вопросы. Мы пройдёмся по ним один за другим.",
+      "Важно понимать, а не заучивать. На занятии покажу, как это работает на нормальных задачах.",
+      "Приходи на ближайшую допку — сначала посмотрим, что уже получается, а потом решим, что подтянуть."
+    ];
+
+    function addBubble(text, type) {
+      const wrap = document.createElement("div");
+      wrap.className = "bubble " + (type === "student" ? "bubble-student" : "bubble-teacher");
+      const time = new Date();
+      const hh = String(time.getHours()).padStart(2, "0");
+      const mm = String(time.getMinutes()).padStart(2, "0");
+      wrap.innerHTML = `
+        ${text}
+        <div class="bubble-time">${type === "student" ? "ты" : "ответ"} • ${hh}:${mm}</div>
+      `;
+      chatBody.appendChild(wrap);
       chatBody.scrollTop = chatBody.scrollHeight;
-      input.value = "";
     }
-    sendBtn.addEventListener("click", () => addStudentMessage(input.value));
+
+    function handleSend() {
+      const text = input.value.trim();
+      if (!text) return;
+      addBubble(text, "student");
+      input.value = "";
+
+      const short = text.length > 80 ? text.slice(0, 80) + "…" : text;
+      const baseReply = teacherReplies[Math.floor(Math.random() * teacherReplies.length)];
+      const reply = `Вижу вопрос: «${short}». ${baseReply}`;
+      const delay = 800 + Math.random() * 900;
+
+      setTimeout(() => {
+        addBubble(reply, "teacher");
+      }, delay);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        addStudentMessage(input.value);
+        handleSend();
       }
     });
 
-    // Счётчик свободных мест (рандом туда-сюда)
+    // Счётчик мест
     const seatsNumber = document.getElementById("seats-number");
     let seatsLeft = 5;
     setInterval(() => {
@@ -1228,9 +1257,9 @@
       seatsNumber.textContent = `${seatsLeft} из 8`;
     }, 15000);
 
-    // Таймер до контрольной (минуты:секунды, просто крутится)
+    // Таймер до "контрольной"
     const timerCount = document.getElementById("timer-count");
-    let seconds = 7 * 60; // 7 минут
+    let seconds = 7 * 60;
     function tick() {
       seconds--;
       if (seconds <= 0) seconds = 7 * 60;
