@@ -249,7 +249,7 @@
       text-transform: uppercase;
       color: #e5f0ff;
       margin-bottom: 18px;
-      animation: pillFade 0.7s.ease-out 0.3s both;
+      animation: pillFade 0.7s ease-out 0.3s both;
       transform-origin: left center;
     }
 
@@ -312,6 +312,11 @@
       align-items: center;
       gap: 8px;
       box-shadow: 0 10px 26px rgba(0,0,0,0.75);
+      cursor: pointer;
+    }
+
+    .seats-chip:hover {
+      border-color: rgba(160,210,255,0.9);
     }
 
     .seats-dot {
@@ -444,7 +449,7 @@
       align-items: center;
       gap: 6px;
       box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s.ease-out;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
     }
 
     .btn-ghost:hover {
@@ -479,7 +484,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: transform 0.18s ease-out, box-shadow 0.18s.ease-out, border-color 0.18s ease-out;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
     }
 
     .bullet-chip:hover {
@@ -586,6 +591,65 @@
     .progress-marks span:nth-child(1) { color: #ff7070; }
     .progress-marks span:nth-child(2) { color: #ffd56a; }
     .progress-marks span:nth-child(3) { color: #4ade80; }
+
+    /* БЛОК НЕДЕЛЬНЫХ ТАЙМЕРОВ */
+    .weekly-timers {
+      margin-top: 18px;
+      border-radius: 18px;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, rgba(8,20,70,0.98), rgba(6,18,60,0.98));
+      border: 1px solid rgba(160,210,255,0.4);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.85);
+      font-size: 11px;
+    }
+
+    .weekly-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(185,205,255,0.95);
+      margin-bottom: 6px;
+    }
+
+    .weekly-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .weekly-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .weekly-item:first-child {
+      border-top: none;
+    }
+
+    .weekly-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .weekly-subject {
+      font-size: 11px;
+      color: rgba(230,240,255,0.95);
+    }
+
+    .weekly-when {
+      font-size: 10px;
+      color: rgba(190,205,255,0.9);
+    }
+
+    .weekly-countdown {
+      font-variant-numeric: tabular-nums;
+      font-size: 11px;
+      color: #ffd56a;
+    }
 
     /* ДЕТАЛИ */
     .details-card {
@@ -736,7 +800,7 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      transition: transform 0.18s ease-out, box-shadow 0.18s.ease-out, border-color 0.18s ease-out;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s.ease-out;
     }
 
     .badge-pill:hover {
@@ -827,7 +891,7 @@
       opacity: 0.9;
     }
 
-    /* ЧАТ-ВИДЖЕТ — растянутый */
+    /* ЧАТ */
     .chat-widget {
       margin-top: 10px;
       width: 100%;
@@ -984,6 +1048,147 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* МОДАЛКА-КАЛЕНДАРЬ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal-window {
+      width: min(480px, 100% - 32px);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(6,14,58,0.98), rgba(8,18,60,0.98));
+      border: 1px solid rgba(180,210,255,0.7);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.95);
+      padding: 16px 18px 14px;
+      color: #e5ecff;
+      animation: modalIn 0.25s cubic-bezier(0.2,0.9,0.3,1.1);
+    }
+
+    @keyframes modalIn {
+      0% { transform: translateY(18px) scale(0.96); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(15,23,60,0.9);
+      color: #e5ecff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    }
+
+    .modal-subtitle {
+      font-size: 12px;
+      color: rgba(190,205,255,0.9);
+      margin-bottom: 10px;
+    }
+
+    .calendar-grid {
+      border-radius: 18px;
+      background: rgba(9,16,50,0.95);
+      border: 1px solid rgba(140,180,245,0.7);
+      padding: 8px;
+      font-size: 11px;
+    }
+
+    .calendar-row-header,
+    .calendar-row {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr 1.2fr;
+      padding: 4px 6px;
+      align-items: center;
+    }
+
+    .calendar-row-header {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(190,205,255,0.95);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 10px;
+    }
+
+    .calendar-row {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .calendar-row:last-child {
+      border-bottom: none;
+    }
+
+    .slot-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .slot-pill.busy {
+      background: rgba(127,29,29,0.9);
+      border-color: rgba(248,113,113,0.9);
+      color: #fee2e2;
+    }
+
+    .slot-pill.free {
+      background: rgba(6,78,59,0.95);
+      border-color: rgba(52,211,153,0.9);
+      color: #dcfce7;
+    }
+
+    .slot-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .slot-dot.busy {
+      background: #f97373;
+      box-shadow: 0 0 8px rgba(248,113,113,0.9);
+    }
+
+    .slot-dot.free {
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74,222,128,0.9);
+    }
+
+    .modal-footer {
+      margin-top: 8px;
+      font-size: 10px;
+      color: rgba(190,205,255,0.9);
+    }
+
   </style>
 </head>
 <body>
@@ -1079,6 +1284,41 @@
             </div>
           </div>
 
+          <!-- Блок недельных таймеров -->
+          <div class="weekly-timers">
+            <div class="weekly-title">До ближайших уроков на неделе</div>
+            <div class="weekly-row">
+              <div class="weekly-item">
+                <div class="weekly-left">
+                  <div class="weekly-subject">Понедельник — геометрия</div>
+                  <div class="weekly-when">Начало в 11:05</div>
+                </div>
+                <div class="weekly-countdown" data-countdown="mon-1105">--:--:--</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-left">
+                  <div class="weekly-subject">Вторник — алгебра</div>
+                  <div class="weekly-when">Начало в 08:30</div>
+                </div>
+                <div class="weekly-countdown" data-countdown="tue-0830">--:--:--</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-left">
+                  <div class="weekly-subject">Среда — алгебра</div>
+                  <div class="weekly-when">Начало в 11:20</div>
+                </div>
+                <div class="weekly-countdown" data-countdown="wed-1120">--:--:--</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-left">
+                  <div class="weekly-subject">Пятница — геометрия</div>
+                  <div class="weekly-when">Начало в 13:15</div>
+                </div>
+                <div class="weekly-countdown" data-countdown="fri-1315">--:--:--</div>
+              </div>
+            </div>
+          </div>
+
           <div class="details-card reveal">
             <div class="details-inner">
               <div class="details-title">О Вениамине Владимировиче</div>
@@ -1135,7 +1375,7 @@
             <span class="badge-label">Стаж</span>
             <span class="badge-value">43+ года педагогической работы</span>
           </div>
-          <div class="badge-pill">
+        <div class="badge-pill">
             <span class="badge-label">Формат</span>
             <span class="badge-value">После уроков, без лишней теории</span>
           </div>
@@ -1180,6 +1420,126 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка-календарь -->
+  <div class="modal-backdrop" id="calendar-modal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title">Расписание допок</div>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-subtitle">
+        Занятие длится 1 час. Занятые слоты — уже записаны, свободные можно занять.
+      </div>
+      <div class="calendar-grid">
+        <div class="calendar-row-header">
+          <div>День</div>
+          <div>Занято</div>
+          <div>Свободно</div>
+        </div>
+
+        <!-- Понедельник -->
+        <div class="calendar-row">
+          <div>Пн</div>
+          <div>
+            <div class="slot-pill busy">
+              <span class="slot-dot busy"></span>
+              <span>18:00–19:00</span>
+              <span>Зайцев Максим</span>
+            </div>
+          </div>
+          <div>
+            <div class="slot-pill free">
+              <span class="slot-dot free"></span>
+              <span>19:15–20:15</span>
+              <span>свободно</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вторник -->
+        <div class="calendar-row">
+          <div>Вт</div>
+          <div>
+            <div class="slot-pill busy">
+              <span class="slot-dot busy"></span>
+              <span>20:00–21:00</span>
+              <span>Матвей Козлов</span>
+            </div>
+          </div>
+          <div>
+            <div class="slot-pill free">
+              <span class="slot-dot free"></span>
+              <span>18:30–19:30</span>
+              <span>свободно</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Среда -->
+        <div class="calendar-row">
+          <div>Ср</div>
+          <div>
+            <div class="slot-pill busy">
+              <span class="slot-dot busy"></span>
+              <span>17:00–18:00</span>
+              <span>Денис Чернобай</span>
+            </div>
+          </div>
+          <div>
+            <div class="slot-pill free">
+              <span class="slot-dot free"></span>
+              <span>18:15–19:15</span>
+              <span>свободно</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Четверг -->
+        <div class="calendar-row">
+          <div>Чт</div>
+          <div>
+            <div class="slot-pill busy">
+              <span class="slot-dot busy"></span>
+              <span>16:00–17:00</span>
+              <span>Илья Смирнов</span>
+            </div>
+          </div>
+          <div>
+            <div class="slot-pill free">
+              <span class="slot-dot free"></span>
+              <span>17:15–18:15</span>
+              <span>свободно</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Пятница -->
+        <div class="calendar-row">
+          <div>Пт</div>
+          <div>
+            <div class="slot-pill busy">
+              <span class="slot-dot busy"></span>
+              <span>15:00–16:00</span>
+              <span>Артём Кузнецов</span>
+            </div>
+          </div>
+          <div>
+            <div class="slot-pill free">
+              <span class="slot-dot free"></span>
+              <span>16:15–17:15</span>
+              <span>свободно</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        Чтобы записаться, напиши Вениамину Владимировичу или подойди после уроков.
       </div>
     </div>
   </div>
@@ -1268,6 +1628,70 @@
       timerCount.textContent = `${m}:${s}`;
     }
     setInterval(tick, 1000);
+
+    // Модалка-календарь
+    const seatsChip = document.getElementById("seats-chip");
+    const calendarModal = document.getElementById("calendar-modal");
+    const modalClose = document.getElementById("modal-close");
+
+    seatsChip.addEventListener("click", () => {
+      calendarModal.classList.add("show");
+    });
+
+    modalClose.addEventListener("click", () => {
+      calendarModal.classList.remove("show");
+    });
+
+    calendarModal.addEventListener("click", (e) => {
+      if (e.target === calendarModal) calendarModal.classList.remove("show");
+    });
+
+    // Недельные таймеры до уроков
+    const countdownEls = document.querySelectorAll("[data-countdown]");
+
+    function getNextDateFor(dayIndex, hour, minute) {
+      const now = new Date();
+      const result = new Date(now);
+      const currentDay = now.getDay(); // 0-вс, 1-пн, ...
+      let diff = dayIndex - currentDay;
+      if (diff < 0) diff += 7;
+
+      result.setDate(now.getDate() + diff);
+      result.setHours(hour, minute, 0, 0);
+
+      // если время уже прошло сегодня — на следующую неделю
+      if (result <= now) {
+        result.setDate(result.getDate() + 7);
+      }
+      return result;
+    }
+
+    const schedule = {
+      "mon-1105": { dayIndex: 1, hour: 11, minute: 5 },
+      "tue-0830": { dayIndex: 2, hour: 8, minute: 30 },
+      "wed-1120": { dayIndex: 3, hour: 11, minute: 20 },
+      "fri-1315": { dayIndex: 5, hour: 13, minute: 15 }
+    };
+
+    function updateWeeklyCountdowns() {
+      const now = new Date();
+      countdownEls.forEach(el => {
+        const key = el.getAttribute("data-countdown");
+        const cfg = schedule[key];
+        if (!cfg) return;
+        const target = getNextDateFor(cfg.dayIndex, cfg.hour, cfg.minute);
+        const diffMs = target - now;
+        const totalSec = Math.floor(diffMs / 1000);
+        const d = Math.floor(totalSec / (24 * 3600));
+        const h = Math.floor((totalSec % (24 * 3600)) / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+        el.textContent = `${d}д ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+      });
+    }
+
+    updateWeeklyCountdowns();
+    setInterval(updateWeeklyCountdowns, 1000);
   </script>
 </body>
 </html>
